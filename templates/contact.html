@@ -1,1 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contactez-moi</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='contact-style.css') }}">
+</head>
+<body>
+  <header>
+    <h1>Contactez-moi</h1>
+    <p>N'hésitez pas à me laisser un message</p>
+  </header>
+
+  <main class="container">
+    <section class="contact-card">
+      <div class="contact-info" aria-labelledby="info-heading">
+        <div class="avatar" aria-hidden="true">SK</div>
+        <div class="info-text">
+          <h2 id="info-heading">Sofiane KHEDIM</h2>
+          <p>Développeur Web passionné par les métriques et la data visualisation.</p>
+          <nav class="social-links" aria-label="Liens sociaux">
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a>
+          </nav>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <div class="success-message" id="successMessage" style="display:none;">
+          <strong>Message envoyé avec succès!</strong> Merci pour votre message, je vous répondrai dès que possible.
+        </div>
+
+        <form id="contactForm" aria-label="Formulaire de contact">
+          <div class="form-group">
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+          </div>
+
+          <div class="form-group">
+            <label for="prenom">Prénom</label>
+            <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Votre message..." required></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">Envoyer le message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Badreddine khalil - Projet Métriques
+  </footer>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const successMsg = document.getElementById('successMessage');
+      setTimeout(() => {
+        successMsg.style.display = 'block';
+        this.reset();
+        successMsg.scrollIntoView({ behavior: 'smooth' });
+        setTimeout(() => {
+          successMsg.style.display = 'none';
+        }, 5000);
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
 
