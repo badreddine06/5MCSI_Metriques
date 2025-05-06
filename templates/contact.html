@@ -4,7 +4,145 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contactez-moi</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='contact-style.css') }}">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+      color: #333;
+    }
+
+    header {
+      background-color: #00a65a;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .contact-card {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 800px;
+      width: 100%;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .contact-info {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .avatar {
+      background-color: #00a65a;
+      color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .info-text h2 {
+      margin: 0;
+      font-size: 1.4rem;
+    }
+
+    .social-links a {
+      margin-right: 1rem;
+      color: #00a65a;
+      text-decoration: none;
+    }
+
+    .social-links a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-form .success-message {
+      display: none;
+      background-color: #dff0d8;
+      border-left: 5px solid #3c763d;
+      padding: 1rem;
+      border-radius: 5px;
+      margin-bottom: 1rem;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-weight: bold;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.7rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-size: 1rem;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .submit-btn {
+      background-color: #00a65a;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background-color: #008a48;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #eaeaea;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    @media (max-width: 600px) {
+      .contact-card {
+        padding: 1rem;
+      }
+
+      .contact-info {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .avatar {
+        margin-bottom: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -20,15 +158,15 @@
           <h2 id="info-heading">Sofiane KHEDIM</h2>
           <p>Développeur Web passionné par les métriques et la data visualisation.</p>
           <nav class="social-links" aria-label="Liens sociaux">
-            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a>
+            <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
+            <a href="https://github.com" target="_blank">GitHub</a>
+            <a href="https://twitter.com" target="_blank">Twitter</a>
           </nav>
         </div>
       </div>
 
       <div class="contact-form">
-        <div class="success-message" id="successMessage" style="display:none;">
+        <div class="success-message" id="successMessage">
           <strong>Message envoyé avec succès!</strong> Merci pour votre message, je vous répondrai dès que possible.
         </div>
 
@@ -55,7 +193,7 @@
   </main>
 
   <footer>
-    &copy; 2025 Badreddine khalil - Projet Métriques
+    &copy; 2025 badreddine khalil - Projet Métriques
   </footer>
 
   <script>
@@ -74,4 +212,3 @@
   </script>
 </body>
 </html>
-
