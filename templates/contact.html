@@ -3,35 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Contactez-moi</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='contact-style.css') }}">
 </head>
 <body>
-    <div class="form-container">
-        <h1 class="page-title">Contactez-moi</h1>
-        
-        <form>
-            <div class="form-group">
-                <label class="form-label" for="nom">Nom</label>
-                <input class="form-input" type="text" id="nom" name="nom" required>
+    <header>
+        <h1>Contactez-moi</h1>
+        <p>N'hésitez pas à me laisser un message</p>
+    </header>
+    
+    <div class="container">
+        <div class="contact-card">
+            <div class="contact-info">
+                <div class="avatar">SK</div>
+                <div class="info-text">
+                    <h2>Sofiane KHEDIM</h2>
+                    <p>Développeur Web passionné par les métriques et la data visualisation.</p>
+                    <div class="social-links">
+                        <a href="#">LinkedIn</a>
+                        <a href="#">GitHub</a>
+                        <a href="#">Twitter</a>
+                    </div>
+                </div>
             </div>
             
-            <div class="form-group">
-                <label class="form-label" for="prenom">Prénom</label>
-                <input class="form-input" type="text" id="prenom" name="prenom" required>
+            <div class="contact-form">
+                <div class="success-message" id="successMessage">
+                    <strong>Message envoyé avec succès!</strong> Merci pour votre message, je vous répondrai dès que possible.
+                </div>
+                
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="nom">Nom</label>
+                        <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="prenom">Prénom</label>
+                        <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Votre message..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Envoyer le message</button>
+                </form>
             </div>
-            
-            <div class="form-group">
-                <label class="form-label" for="message">Message</label>
-                <textarea class="form-input form-textarea" id="message" name="message" required></textarea>
-            </div>
-            
-            <button class="submit-button" type="submit">Envoyer</button>
-        </form>
+        </div>
     </div>
     
-    <footer class="page-footer">
+    <footer>
         &copy; 2025 Sofiane KHEDIM - Projet Métriques
     </footer>
+
+    <script>
+        // Script pour simuler l'envoi du formulaire
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simuler un délai d'envoi
+            setTimeout(function() {
+                // Afficher le message de succès
+                document.getElementById('successMessage').style.display = 'block';
+                
+                // Réinitialiser le formulaire
+                document.getElementById('contactForm').reset();
+                
+                // Faire défiler jusqu'au message de succès
+                document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
+                
+                // Cacher le message après 5 secondes
+                setTimeout(function() {
+                    document.getElementById('successMessage').style.display = 'none';
+                }, 5000);
+            }, 1000);
+        });
+    </script>
 </body>
 </html>
